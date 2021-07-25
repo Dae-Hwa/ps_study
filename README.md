@@ -29,3 +29,5 @@ TAIL은 나머지 부분
 ## 기타
 
 Arrays.sort는 퀵소트, Collections.sort는 머지소트라고 한다.
+
+Comparator는 메소드 체이닝을 이용하면 여러가지 조건도 훨씬 깔끔하게 구현할 수 있다.

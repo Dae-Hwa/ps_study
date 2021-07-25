@@ -5,66 +5,60 @@ class Solution {
     public String[] solution(String[] files) {
         return Arrays.stream(files)
                        .map(File::from)
-                       .sorted((o1, o2) -> {
-                                   int comparingResult = Comparator.<String>naturalOrder().compare(o1.head(), o2.head());
-
-                                   if (comparingResult == 0) {
-                                       comparingResult = Comparator.<Integer>naturalOrder().compare(o1.number(), o2.number());
-                                   }
-
-                                   return comparingResult;
-                               }
+                       .sorted((o1, o2) -> Comparator.comparing(File::head)
+                                                   .thenComparing(File::number)
+                                                   .compare(o1, o2)
                        ).map(File::name)
                        .toArray(value -> new String[value]);
     }
-}
 
-class File {
-    private String name;
-    private String head;
-    private int number;
+    private static class File {
+        private String name;
+        private String head;
+        private int number;
 
-    private File(String name, String head, int number) {
-        this.name = name;
-        this.head = head;
-        this.number = number;
-    }
+        private File(String name, String head, int number) {
+            this.name = name;
+            this.head = head;
+            this.number = number;
+        }
 
-    public static File from(String name) {
-        StringBuilder head = new StringBuilder();
-        StringBuilder number = new StringBuilder();
+        public static File from(String name) {
+            StringBuilder head = new StringBuilder();
+            StringBuilder number = new StringBuilder();
 
-        for (char each : name.toCharArray()) {
-            if (isNumber(each)) {
-                number.append(each);
-            } else if (number.length() == 0 && !isNumber(each)) {
-                head.append(each);
-            } else if (head.length() != 0 && !isNumber(each)) {
-                break;
+            for (char each : name.toCharArray()) {
+                if ('0' <= each && each <= '9') {
+                    number.append(each);
+                } else if (number.length() == 0) {
+                    head.append(each);
+                } else if (head.length() != 0) {
+                    break;
+                }
             }
+
+            if (number.length() == 0) {
+                number.append(0);
+            }
+
+            return new File(
+                    name,
+                    head.toString().toLowerCase(),
+                    Integer.valueOf(number.toString())
+            );
         }
 
-        if(number.length() == 0) {
-            number.append(0);
+        public String name() {
+            return name;
         }
 
-        return new File(name, head.toString().toLowerCase(), Integer.valueOf(number.toString()));
-    }
+        public String head() {
+            return head;
+        }
 
-    public String name() {
-        return name;
-    }
-
-    public String head() {
-        return head;
-    }
-
-    public int number() {
-        return number;
-    }
-
-    private static boolean isNumber(char c) {
-        return '0' <= c && c <= '9';
+        public int number() {
+            return number;
+        }
     }
 }
 
