@@ -2,8 +2,6 @@ import java.util.Arrays;
 
 class Solution {
     public int solution(int n, int[] lost, int[] reserve) {
-        int answer = 0;
-
         int[] students = new int[n + 2];
         Arrays.fill(students, 1);
         students[0] = 0;
