@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 class Solution {
     public String solution(int n, int t, int m, int p) {
@@ -25,61 +24,52 @@ class Solution {
 
         return answer;
     }
-}
 
-class RadixNumber {
-    private static final String[] NUMBERS_OVER_TEN = new String[]{"A", "B", "C", "D", "E", "F"};
-    private List<Integer> figures = new ArrayList<>();
-    private int radix;
-    private int count;
+    static class RadixNumber {
+        private static final String[] NUMBERS_OVER_TEN = new String[]{"A", "B", "C", "D", "E", "F"};
+        private List<Integer> figures = new ArrayList<>();
+        private int radix;
+        private int currentIndex;
 
-    public RadixNumber(int radix) {
-        this.radix = radix;
-        figures.add(0);
-    }
-
-    public void next() {
-        count++;
-        if (count == figures.size()) {
-            add(1);
-            count = 0;
+        public RadixNumber(int radix) {
+            this.radix = radix;
+            figures.add(0);
         }
-    }
 
-    public void add(int num) {
-        figures.set(0, figures.get(0) + num);
-        rebalance();
-    }
-
-    private void rebalance() {
-        for (int i = 0; i < figures.size(); i++) {
-            int cur = figures.get(i);
-            if (radix <= cur) {
-                if (i + 1 == figures.size()) {
-                    figures.add(0);
-                }
-
-                figures.set(i + 1, figures.get(i + 1) + cur / radix);
-                figures.set(i, cur % radix);
+        public void next() {
+            currentIndex--;
+            if (currentIndex == -1) {
+                add(1);
+                currentIndex = figures.size() - 1;
             }
         }
-    }
 
-    public String current() {
-        int currentIndex = figures.size() - count - 1;
-        int current = figures.get(currentIndex);
-        return current < 10 ? String.valueOf(current) : NUMBERS_OVER_TEN[current % 10];
-    }
+        public void add(int num) {
+            figures.set(0, figures.get(0) + num);
+            rebalance();
+        }
 
-    @Override
-    public String toString() {
-        return figures.stream()
-                       .map(number -> number < 10 ?
-                                              String.valueOf(number) :
-                                              NUMBERS_OVER_TEN[number % 10]
-                       ).collect(Collectors.joining());
+        private void rebalance() {
+            for (int i = 0; i < figures.size(); i++) {
+                int cur = figures.get(i);
+                if (radix <= cur) {
+                    if (i + 1 == figures.size()) {
+                        figures.add(0);
+                    }
+
+                    figures.set(i + 1, figures.get(i + 1) + cur / radix);
+                    figures.set(i, cur % radix);
+                }
+            }
+        }
+
+        public String current() {
+            int current = figures.get(currentIndex);
+            return current < 10 ? String.valueOf(current) : NUMBERS_OVER_TEN[current % 10];
+        }
     }
 }
+
 
 public class SourceCode {
     public static void main(String[] args) {
