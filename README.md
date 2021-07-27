@@ -17,6 +17,12 @@
 
 ## Done
 
+### 07.27
+
+- [방금그곡](https://github.com/Dae-Hwa/ps_study/tree/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/%EB%B0%A9%EA%B8%88%EA%B7%B8%EA%B3%A1)
+- [스킬트리](https://github.com/Dae-Hwa/ps_study/tree/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/%EC%8A%A4%ED%82%AC%ED%8A%B8%EB%A6%AC)
+- [주식가격](https://github.com/Dae-Hwa/ps_study/tree/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/%EC%A3%BC%EC%8B%9D%EA%B0%80%EA%B2%A9)
+
 ### 07.25.
 
 - [신규 아이디 추천](https://github.com/Dae-Hwa/ps_study/tree/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/%EC%8B%A0%EA%B7%9C_%EC%95%84%EC%9D%B4%EB%94%94_%EC%B6%94%EC%B2%9C)
