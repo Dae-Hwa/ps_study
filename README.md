@@ -17,6 +17,10 @@
 
 ## Done
 
+### 07.28
+
+- [큰 수 만들기](https://github.com/Dae-Hwa/ps_study/blob/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/%ED%81%B0_%EC%88%98_%EB%A7%8C%EB%93%A4%EA%B8%B0/SourceCode.java)
+
 ### 07.27
 
 - [방금그곡](https://github.com/Dae-Hwa/ps_study/tree/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/%EB%B0%A9%EA%B8%88%EA%B7%B8%EA%B3%A1)
