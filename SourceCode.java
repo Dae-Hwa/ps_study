@@ -19,10 +19,8 @@ class Solution {
     private int checkPlace(String[] room) {
         for (int y = 0; y < ROOM_SIZE; y++) {
             for (int x = 0; x < ROOM_SIZE; x++) {
-                if (room[y].charAt(x) == CANDIDATE) {
-                    if (!checkPlace(room, x, y)) {
-                        return 0;
-                    }
+                if (room[y].charAt(x) == CANDIDATE && !checkPlace(room, x, y)) {
+                    return 0;
                 }
             }
         }
@@ -42,88 +40,91 @@ class Solution {
         int leftOne = x - 1;
         int leftTwo = x - 2;
 
-        if (0 <= leftOne) {
-            char left = room[y].charAt(leftOne);
-            if (left == CANDIDATE) {
-                return false;
-            } else if (left == EMPTY_TABLE && 0 <= leftTwo) {
-                if (room[y].charAt(leftTwo) == CANDIDATE) {
-                    return false;
-                }
-            }
+        if (leftOne < 0) {
+            return true;
         }
 
-        return true;
-    }
-
-    private boolean checkBottomLeft(String[] room, int x, int y) {
-        int leftOne = x - 1;
-        int bottomOne = y + 1;
-
-        if (0 <= leftOne && bottomOne < ROOM_SIZE) {
-            char bottomLeft = room[bottomOne].charAt(leftOne);
-            char left = room[y].charAt(leftOne);
-            char bottom = room[bottomOne].charAt(x);
-
-            if (!(left == PARTITION && bottom == PARTITION) && bottomLeft == CANDIDATE) {
-                return false;
-            }
+        char left = room[y].charAt(leftOne);
+        if (left == CANDIDATE) {
+            return false;
         }
 
-        return true;
+        if (leftTwo < 0) {
+            return true;
+        }
+
+        return !(left == EMPTY_TABLE && room[y].charAt(leftTwo) == CANDIDATE);
     }
 
     private boolean checkBottom(String[] room, int x, int y) {
         int bottomOne = y + 1;
         int bottomTwo = y + 2;
 
-        if (bottomOne < ROOM_SIZE) {
-            char bottom = room[bottomOne].charAt(x);
-            if (bottom == CANDIDATE) {
-                return false;
-            } else if (bottom == EMPTY_TABLE && bottomTwo < ROOM_SIZE) {
-                if (room[bottomTwo].charAt(x) == CANDIDATE) {
-                    return false;
-                }
-            }
+        if (ROOM_SIZE <= bottomOne) {
+            return true;
         }
 
-        return true;
-    }
-
-    private boolean checkBottomRight(String[] room, int x, int y) {
-        int bottomOne = y + 1;
-        int rightOne = x + 1;
-
-        if (rightOne < ROOM_SIZE && bottomOne < ROOM_SIZE) {
-            char bottomRight = room[bottomOne].charAt(rightOne);
-            char right = room[y].charAt(rightOne);
-            char bottom = room[bottomOne].charAt(x);
-
-            if (!(right == PARTITION && bottom == PARTITION) && bottomRight == CANDIDATE) {
-                return false;
-            }
+        char bottom = room[bottomOne].charAt(x);
+        if (bottom == CANDIDATE) {
+            return false;
         }
 
-        return true;
+        if (ROOM_SIZE <= bottomTwo) {
+            return true;
+        }
+
+        return !(bottom == EMPTY_TABLE && room[bottomTwo].charAt(x) == CANDIDATE);
     }
 
     private boolean checkRight(String[] room, int x, int y) {
         int rightOne = x + 1;
         int rightTwo = x + 2;
 
-        if (rightOne < ROOM_SIZE) {
-            char right = room[y].charAt(rightOne);
-            if (right == CANDIDATE) {
-                return false;
-            } else if (right == EMPTY_TABLE && rightTwo < ROOM_SIZE) {
-                if (room[y].charAt(rightTwo) == CANDIDATE) {
-                    return false;
-                }
-            }
+        if (ROOM_SIZE <= rightOne) {
+            return true;
         }
 
-        return true;
+        char right = room[y].charAt(rightOne);
+        if (right == CANDIDATE) {
+            return false;
+        }
+
+        if (ROOM_SIZE <= rightTwo) {
+            return true;
+        }
+
+        return !(right == EMPTY_TABLE && room[y].charAt(rightTwo) == CANDIDATE);
+    }
+
+    private boolean checkBottomLeft(String[] room, int x, int y) {
+        int bottomOne = y + 1;
+        int leftOne = x - 1;
+
+        if (!(0 <= leftOne && bottomOne < ROOM_SIZE)) {
+            return true;
+        }
+
+        char bottomLeft = room[bottomOne].charAt(leftOne);
+        char left = room[y].charAt(leftOne);
+        char bottom = room[bottomOne].charAt(x);
+
+        return (left == PARTITION && bottom == PARTITION) || bottomLeft != CANDIDATE;
+    }
+
+
+    private boolean checkBottomRight(String[] room, int x, int y) {
+        int bottomOne = y + 1;
+        int rightOne = x + 1;
+
+        if (!(rightOne < ROOM_SIZE && bottomOne < ROOM_SIZE)) {
+            return true;
+        }
+
+        char bottomRight = room[bottomOne].charAt(rightOne);
+        char right = room[y].charAt(rightOne);
+        char bottom = room[bottomOne].charAt(x);
+
+        return (right == PARTITION && bottom == PARTITION) || bottomRight != CANDIDATE;
     }
 }
 
