@@ -17,6 +17,16 @@
 
 ## Done
 
+### 08.04
+
+- [괄호 변환](https://github.com/Dae-Hwa/ps_study/tree/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/%EA%B4%84%ED%98%B8_%EB%B3%80%ED%99%98)
+
+### 07.29
+
+- [124 나라의 숫자](https://github.com/Dae-Hwa/ps_study/tree/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/124_%EB%82%98%EB%9D%BC%EC%9D%98_%EC%88%AB%EC%9E%90)
+- [기능 개발](https://github.com/Dae-Hwa/ps_study/tree/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/%EA%B8%B0%EB%8A%A5%EA%B0%9C%EB%B0%9C)
+- [거리두기 확인하기](https://github.com/Dae-Hwa/ps_study/tree/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/%EA%B1%B0%EB%A6%AC%EB%91%90%EA%B8%B0_%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0)
+
 ### 07.28
 
 - [큰 수 만들기](https://github.com/Dae-Hwa/ps_study/blob/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/%ED%81%B0_%EC%88%98_%EB%A7%8C%EB%93%A4%EA%B8%B0/SourceCode.java)
