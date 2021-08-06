@@ -18,40 +18,7 @@ class Main {
 
     public static long solution(int[] realDivisors) {
         Arrays.sort(realDivisors);
-
-        long N = realDivisors[realDivisors.length - 1] + 1;
-        boolean isNotEnded = true;
-
-        while (isNotEnded) {
-            if (!isN(N, realDivisors)) {
-                N++;
-                continue;
-            }
-
-            isNotEnded = false;
-        }
-
-        return N;
-    }
-
-    private static boolean isN(long N, int[] realDivisors) {
-        for (int realDivisor : realDivisors) {
-            if (N % realDivisor != 0) {
-                return false;
-            }
-        }
-
-        int cnt = 0;
-
-        for (int i = 1; i <= N / i; i++) {
-            if (N % i == 0) {
-                cnt++;
-
-                if (N / i != i) cnt++;
-            }
-        }
-
-        return cnt - 2 == realDivisors.length;
+        return realDivisors[0] * realDivisors[realDivisors.length - 1];
     }
 }
 
