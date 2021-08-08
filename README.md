@@ -17,6 +17,20 @@
 
 ## Done
 
+### 08.08
+
+- [쿼드압축 후 개수 세기](https://github.com/Dae-Hwa/ps_study/tree/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/%EC%BF%BC%EB%93%9C%EC%95%95%EC%B6%95_%ED%9B%84_%EA%B0%9C%EC%88%98_%EC%84%B8%EA%B8%B0)
+
+### 08.06
+
+- [약수 구하기](https://github.com/Dae-Hwa/ps_study/tree/%EB%B0%B1%EC%A4%80/%EC%95%BD%EC%88%98_%EA%B5%AC%ED%95%98%EA%B8%B0-2501)
+- [약수](https://github.com/Dae-Hwa/ps_study/tree/%EB%B0%B1%EC%A4%80/%EC%95%BD%EC%88%98-1037)
+- [약수의 개수와 덧셈](https://github.com/Dae-Hwa/ps_study/tree/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/%EC%95%BD%EC%88%98%EC%9D%98_%EA%B0%9C%EC%88%98%EC%99%80_%EB%8D%A7%EC%85%88)
+
+### 08.05
+
+- [메뉴 리뉴얼](https://github.com/Dae-Hwa/ps_study/tree/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/%EB%A9%94%EB%89%B4_%EB%A6%AC%EB%89%B4%EC%96%BC)
+
 ### 08.04
 
 - [괄호 변환](https://github.com/Dae-Hwa/ps_study/tree/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/%EA%B4%84%ED%98%B8_%EB%B3%80%ED%99%98)
