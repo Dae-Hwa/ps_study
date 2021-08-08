@@ -2,40 +2,59 @@ import java.util.*;
 
 class Solution {
     public int[] solution(String msg) {
-        Map<String, Integer> dictionary = new HashMap<>();
-
-        for (int i = 'A'; i <= 'Z'; i++) {
-            dictionary.put(Character.toString(i), i - 'A' + 1);
-        }
-
-        return lzwZip(msg, dictionary);
+        return LzwZip.from(msg)
+                .zip()
+                .result();
     }
 
-    private int[] lzwZip(String msg, Map<String, Integer> dictionary) {
-        int lastIndex = dictionary.size();
+    static class LzwZip {
+        private Map<String, Integer> dictionary;
+        private List<Integer> result;
+        private String msg;
 
-        List<Integer> result = new LinkedList<>();
-        for (int i = 0; i < msg.length(); i++) {
-            for (int j = msg.length(); i < j; j--) {
-                String candidate = msg.substring(i, j);
-
-                if (dictionary.containsKey(candidate)) {
-                    result.add(dictionary.get(candidate));
-
-                    int endNumberOfKey = j;
-
-                    if (endNumberOfKey < msg.length()) {
-                        dictionary.put(candidate + msg.charAt(endNumberOfKey), ++lastIndex);
-                    }
-
-                    i += j - i - 1;
-
-                    break;
-                }
-            }
+        private LzwZip(Map<String, Integer> dictionary, List<Integer> result, String msg) {
+            this.dictionary = dictionary;
+            this.result = result;
+            this.msg = msg;
         }
 
-        return result.stream().mapToInt(Integer::valueOf).toArray();
+        public static LzwZip from(String msg) {
+            Map<String, Integer> dictionary = new HashMap<>();
+
+            for (int i = 'A'; i <= 'Z'; i++) {
+                dictionary.put(Character.toString(i), i - 'A' + 1);
+            }
+
+            return new LzwZip(dictionary, new LinkedList<>(), msg);
+        }
+
+        public LzwZip zip() {
+            for (int i = 0; i < msg.length(); i++) {
+                for (int j = msg.length(); i < j; j--) {
+                    String candidate = msg.substring(i, j);
+
+                    if (dictionary.containsKey(candidate)) {
+                        result.add(dictionary.get(candidate));
+
+                        int endNumberOfKey = j;
+
+                        if (endNumberOfKey < msg.length()) {
+                            dictionary.put(candidate + msg.charAt(endNumberOfKey), dictionary.size() + 1);
+                        }
+
+                        i += j - i - 1;
+
+                        break;
+                    }
+                }
+            }
+
+            return this;
+        }
+
+        public int[] result() {
+            return result.stream().mapToInt(Integer::valueOf).toArray();
+        }
     }
 }
 
