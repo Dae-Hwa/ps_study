@@ -17,6 +17,12 @@
 
 ## Done
 
+### 08.10
+
+- [프렌즈4블록](https://github.com/Dae-Hwa/ps_study/tree/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/%ED%94%84%EB%A0%8C%EC%A6%884%EB%B8%94%EB%A1%9D)
+- [상어 초등학교](https://github.com/Dae-Hwa/ps_study/tree/%EB%B0%B1%EC%A4%80/%EC%83%81%EC%96%B4_%EC%B4%88%EB%93%B1%ED%95%99%EA%B5%90)
+- [상호 평가](https://github.com/Dae-Hwa/ps_study/tree/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/%EC%83%81%ED%98%B8_%ED%8F%89%EA%B0%80)
+
 ### 08.08
 
 - [쿼드압축 후 개수 세기](https://github.com/Dae-Hwa/ps_study/tree/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/%EC%BF%BC%EB%93%9C%EC%95%95%EC%B6%95_%ED%9B%84_%EA%B0%9C%EC%88%98_%EC%84%B8%EA%B8%B0)
