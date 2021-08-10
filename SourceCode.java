@@ -30,8 +30,8 @@ class Solution {
                     Block bottomRightBlock = blocks.get(i + 1).get(j + 1);
 
                     if (curBlock.hasTheSameNameWith(bottomBlock) &&
-                                curBlock.hasTheSameNameWith(rightBlock) &&
-                                curBlock.hasTheSameNameWith(bottomRightBlock)
+                        curBlock.hasTheSameNameWith(rightBlock) &&
+                        curBlock.hasTheSameNameWith(bottomRightBlock)
                     ) {
                         curBlock.delete();
                         bottomBlock.delete();
