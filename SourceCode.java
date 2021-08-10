@@ -25,15 +25,19 @@ class Main {
 
         int[] dr = new int[]{1, -1, 0, 0};
         int[] dc = new int[]{0, 0, 1, -1};
+        
+        // 자리 채우기
         for (Student student : students) {
             int maxFavoriteStudents = 0;
             int lastNumberOfEmptyPlaces = 0;
-            int[] candidate = new int[]{-1, -1};
+            int[] candidate = new int[]{-1, -1}; // 조건 만족하는 경우가 없으면 비어있는 칸에 들어가야 하기 때문에 -1, -1로 초기화
             for (int i = 0; i < N; i++) {
                 for (int j = 0; j < N; j++) {
                     if (classRoom[i][j] != null) {
+                        // 자리에 학생이 있는 경우
                         continue;
                     }
+                    
                     Queue<Integer> favoriteStudents = new ArrayDeque<>();
                     int numberOfEmptyPlaces = 0;
                     for (int k = 0; k < 4; k++) {
@@ -49,15 +53,18 @@ class Main {
                     int numberOfFavoriteStudents = student.numberOfDuplicatedFavoriteStudentsWith(favoriteStudents);
 
                     if (maxFavoriteStudents < numberOfFavoriteStudents) {
+                        // 조건 1 만족
                         maxFavoriteStudents = numberOfFavoriteStudents;
                         lastNumberOfEmptyPlaces = numberOfEmptyPlaces;
                         candidate[0] = i;
                         candidate[1] = j;
                     } else if (maxFavoriteStudents == numberOfFavoriteStudents && lastNumberOfEmptyPlaces < numberOfEmptyPlaces) {
+                        // 조건 2 만족
                         lastNumberOfEmptyPlaces = numberOfEmptyPlaces;
                         candidate[0] = i;
                         candidate[1] = j;
                     } else if (candidate[0] == -1 && candidate[1] == -1) {
+                        // 조건을 아무것도 만족 못할 경우 자리가 없는 것처럼 판단되므로 조건 3만 만족하도록 채워줌
                         lastNumberOfEmptyPlaces = numberOfEmptyPlaces;
                         candidate[0] = i;
                         candidate[1] = j;
@@ -70,6 +77,7 @@ class Main {
         int satisfactionPoint = 0;
         int[] satisfactionPointMap = new int[]{0, 1, 10, 100, 1000};
 
+        // 포인트 계산
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 Student student = classRoom[i][j];
