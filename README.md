@@ -17,6 +17,11 @@
 
 ## Done
 
+### 08.20
+
+- [섬의 개수](https://github.com/Dae-Hwa/ps_study/tree/%EB%B0%B1%EC%A4%80/%EC%84%AC%EC%9D%98_%EA%B0%9C%EC%88%98-4963)
+- [A와 B](https://github.com/Dae-Hwa/ps_study/tree/%EB%B0%B1%EC%A4%80/A%EC%99%80B-12904)
+
 ### 08.17~20
 
 - [Sliding Window Maximum](https://github.com/Dae-Hwa/ps_study/tree/leetcode/Sliding_Window_Maximum)
