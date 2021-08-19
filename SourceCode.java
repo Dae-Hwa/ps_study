@@ -1,7 +1,7 @@
+import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.PriorityQueue;
-import java.util.Queue;
+import java.util.Deque;
 
 class Solution {
     public int[] maxSlidingWindow(int[] nums, int k) {
@@ -9,23 +9,30 @@ class Solution {
 
         int[] answer = new int[nums.length - k + 1];
 
-        Queue<Node> pq = new PriorityQueue<>(Comparator.comparingInt(Node::value).reversed());
+        Deque<Integer> deque = new ArrayDeque<>();
 
         for (int i = 0; i < k; i++) {
-            pq.add(new Node(i, nums[i]));
+            while (!deque.isEmpty() && nums[deque.peekLast()] <= nums[i]) {
+                deque.pollLast();
+            }
+            deque.offer(i);
         }
 
         /* nums.length - k + 1 회 만큼 돌아야 한다.
          * k ~ nums.length + 1만큼 돌아야 하는데, 이러면 i가 헷갈리므로 k-1 ~ nums.length 만큼 반복
          */
         for (int i = k - 1; i < nums.length; i++) {
-            while (!pq.isEmpty() && pq.peek().isIndexSmallerThan(i - k + 1)) {
-                pq.poll();
+            while (!deque.isEmpty() && deque.peek() < i - k + 1) {
+                deque.poll();
             }
 
-            pq.add(new Node(i, nums[i]));
+            while (!deque.isEmpty() && nums[deque.peekLast()] <= nums[i]) {
+                deque.pollLast();
+            }
 
-            answer[i - k + 1] = pq.peek().value();
+            deque.offer(i);
+
+            answer[i - k + 1] = nums[deque.peek()];
         }
 
         return answer;
