@@ -7,90 +7,78 @@ class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        String[] firstLine = br.readLine().split(" ");
+        String[] firstInput = br.readLine().split(" ");
 
-        int N = Integer.parseInt(firstLine[0]);
-        int L = Integer.parseInt(firstLine[1]);
+        // 역 개수
+        int N = Integer.parseInt(firstInput[0]);
+        int L = Integer.parseInt(firstInput[1]);
 
-        // <노선, 역> 없으면 환승해야함
-        Map<Integer, Set<Integer>> lines = new HashMap<>();
-        // <현재노선, 이어진노선>
-        Map<Integer, Set<Integer>> hubs = new HashMap<>();
+        List<Set<Integer>> stationToLine = new ArrayList<>();
+        List<Set<Integer>> lineToStation = new ArrayList<>();
 
-        // <역, 노선>
-        Map<Integer, Set<Integer>> stations = new HashMap<>();
-        for (int i = 1; i <= N; i++) {
-            stations.put(i, new HashSet<>());
+        for (int i = 0; i < N + 1; i++) {
+            stationToLine.add(new HashSet<>());
         }
+
+        lineToStation.add(new HashSet<>());
 
         for (int i = 1; i <= L; i++) {
-            lines.put(i, new HashSet<>());
-            hubs.put(i, new HashSet<>());
+            int[] lineInput = Arrays.stream(br.readLine().split(" "))
+                                    .mapToInt(Integer::parseInt)
+                                    .toArray();
 
-            int[] input = Arrays.stream(br.readLine().split(" "))
-                                .mapToInt(Integer::parseInt)
-                                .toArray();
-
-            Set<Integer> line = lines.get(i);
-            for (int j = 0; j < input.length - 1; j++) {
-                line.add(input[j]);
-                stations.get(input[j]).add(i);
+            Set<Integer> station = new HashSet<>();
+            for (int j = 0; j < lineInput.length - 1; j++) {
+                stationToLine.get(lineInput[j]).add(i);
+                station.add(lineInput[j]);
             }
+            lineToStation.add(station);
         }
 
-        for (int i = 1; i <= N; i++) {
-            Set<Integer> station = stations.get(i);
+        int[] lineTransferCount = new int[L + 1];
+        int[] stationTransferCount = new int[N + 1];
 
-            if (1 < station.size()) {
-                for (int line : station) {
-                    hubs.get(line).addAll(station);
-                    hubs.get(line).remove(line);
-                }
-            }
-        }
+        Arrays.fill(stationTransferCount, Integer.MAX_VALUE);
+        Arrays.fill(lineTransferCount, Integer.MAX_VALUE);
 
-        Queue<int[]> bfs = new ArrayDeque<>();
         String[] lastInput = br.readLine().split(" ");
 
-        int startingStation = Integer.parseInt(lastInput[0]);
-        int targetStation = Integer.parseInt(lastInput[1]);
+        int start = Integer.parseInt(lastInput[0]);
+        int end = Integer.parseInt(lastInput[1]);
 
-        boolean[] visited = new boolean[L + 1];
-        for (int line : stations.get(startingStation)) {
-            bfs.offer(new int[]{line, 0});
-            visited[line] = true;
+        Queue<Integer> bfs = new ArrayDeque<>();
+
+        for (int line : stationToLine.get(start)) {
+            bfs.offer(line);
+            stationTransferCount[start] = 0;
+            lineTransferCount[line] = 0;
         }
 
-        int answer = Integer.MAX_VALUE;
 
         while (!bfs.isEmpty()) {
-            int[] cur = bfs.poll();
-            int currentLineNumber = cur[0];
+            int currentLine = bfs.poll();
+            int currentTransferCount = lineTransferCount[currentLine];
 
-            int currentTransferCount = cur[1];
+            Set<Integer> nextStations = lineToStation.get(currentLine);
 
-            Set<Integer> currentLine = lines.get(currentLineNumber);
-
-            if (currentLine.contains(targetStation)) {
-                if (currentTransferCount < answer) {
-                    answer = currentTransferCount;
+            for (int nextStation : nextStations) {
+                if (stationTransferCount[nextStation] != Integer.MAX_VALUE) continue;
+                if (nextStation == end) {
+                    System.out.println(currentTransferCount);
+                    return;
                 }
-            }
+                Set<Integer> nextLines = stationToLine.get(nextStation);
 
-            // 환승
-            Set<Integer> hub = hubs.get(currentLineNumber);
-            currentTransferCount++;
-            for (int nextLine : hub) {
-                if (!visited[nextLine]) {
-                    bfs.offer(new int[]{nextLine, currentTransferCount});
-                    visited[nextLine] = true;
+                stationTransferCount[nextStation] = currentTransferCount;
+
+                for (int nextLine : nextLines) {
+                    if (lineTransferCount[nextLine] != Integer.MAX_VALUE) continue;
+                    lineTransferCount[nextLine] = currentTransferCount + 1;
+                    bfs.offer(nextLine);
                 }
             }
         }
-
-        if (answer == Integer.MAX_VALUE) answer = -1;
-
-        System.out.println(answer);
+        System.out.println(-1);
     }
 }
 
