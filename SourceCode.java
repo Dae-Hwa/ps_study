@@ -1,53 +1,22 @@
-import java.util.ArrayList;
-import java.util.List;
-
 class Solution {
     public boolean solution(int[][] key, int[][] lock) {
-        boolean answer = false;
-        int N = lock.length;
-        int lockLeft = N;
-        int lockRight = 0;
-        int lockTop = N;
-        int lockBottom = 0;
 
-        List<int[]> blanks = new ArrayList<>();
+        int copyLength = key.length * 2 + lock.length - 2;
 
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
-                int cur = lock[i][j];
+        int offset = key.length - 1;
+        int n = offset + lock.length;
 
-                if (cur == 0) {
-                    if (j < lockLeft) lockLeft = j;
-                    if (lockRight < j) lockRight = j;
-                    if (i < lockTop) lockTop = i;
-                    if (lockBottom < i) lockBottom = i;
+        for (int r = 0; r < n; r++) {
+            for (int c = 0; c < n; c++) {
+                for (int rotation = 0; rotation < 4; rotation++) {
+                    int[][] copyBoard = new int[copyLength][copyLength];
+                    initBoard(copyBoard, lock, offset);
 
-                    blanks.add(new int[]{i, j});
-                }
-            }
-        }
+                    fillBoardWithKey(copyBoard, key, r, c, rotation);
 
-        int[][] expectedKey = new int[lockBottom - lockTop + 1][lockRight - lockLeft + 1];
-
-        for (int[] blank : blanks) {
-            expectedKey[blank[0] - lockTop][blank[1] - lockLeft] = 1;
-        }
-
-        int M = key.length;
-
-        for (int i = 0; i < M; i++) {
-            if (M <= i + lockBottom - lockTop) continue;
-
-            for (int j = 0; j < M; j++) {
-                if (M <= j + lockRight - lockLeft) continue;
-
-                if (
-                        checkTop(expectedKey, key, i, j) ||
-                        checkLeft(expectedKey, key, i, j) ||
-                        checkBottom(expectedKey, key, i, j) ||
-                        checkRight(expectedKey, key, i, j)
-                ) {
-                    return true;
+                    if (checkBoard(copyBoard, lock.length, offset)) {
+                        return true;
+                    }
                 }
             }
         }
@@ -55,56 +24,48 @@ class Solution {
         return false;
     }
 
-
-    public boolean checkTop(int[][] expectedKey, int[][] key, int keyTop, int keyLeft) {
-
-        for (int i = 0; i < expectedKey.length; i++) {
-            int[] row = expectedKey[i];
-            for (int j = 0; j < row.length; j++) {
-                if (row[j] != key[i + keyTop][j + keyLeft]) return false;
+    private void initBoard(int[][] copyBoard, int[][] lock, int offset) {
+        for (int i = 0; i < lock.length; i++) {
+            for (int j = 0; j < lock.length; j++) {
+                copyBoard[i + offset][j + offset] = lock[i][j];
             }
         }
-
-        return true;
     }
 
-    public boolean checkLeft(int[][] expectedKey, int[][] key, int keyTop, int keyBottom) {
-
-        for (int i = 0; i < expectedKey.length; i++) {
-            int reverseI = expectedKey.length - i - 1;
-            int[] row = expectedKey[reverseI];
-            for (int j = 0; j < row.length; j++) {
-
-                if (row[j] != key[i + keyTop][j + keyBottom]) return false;
+    private void fillBoardWithKey(int[][] copyBoard, int[][] key, int r, int c, int rotation) {
+        for (int i = 0; i < key.length; i++) {
+            for (int j = 0; j < key.length; j++) {
+                switch (rotation) {
+                    case 0: {
+                        copyBoard[i + r][j + c] += key[i][j];
+                        break;
+                    }
+                    case 1: {
+                        // 90도
+                        copyBoard[i + r][j + c] += key[key.length - j - 1][i];
+                        break;
+                    }
+                    case 2: {
+                        // 180
+                        copyBoard[i + r][j + c] += key[key.length - i - 1][key.length - j - 1];
+                        break;
+                    }
+                    case 3: {
+                        // 270
+                        copyBoard[i + r][j + c] += key[j][key.length - i - 1];
+                        break;
+                    }
+                }
             }
         }
-
-        return true;
     }
 
-    public boolean checkRight(int[][] expectedKey, int[][] key, int keyTop, int keyBottom) {
-
-        for (int i = 0; i < expectedKey.length; i++) {
-            int[] row = expectedKey[i];
-            for (int j = 0; j < row.length; j++) {
-                int reverseJ = row.length - j - 1;
-
-                if (row[reverseJ] != key[i + keyTop][j + keyBottom]) return false;
-            }
-        }
-
-        return true;
-    }
-
-    public boolean checkBottom(int[][] expectedKey, int[][] key, int keyTop, int keyBottom) {
-
-        for (int i = 0; i < expectedKey.length; i++) {
-            int reverseI = expectedKey.length - i - 1;
-            int[] row = expectedKey[reverseI];
-            for (int j = 0; j < row.length; j++) {
-                int reverseJ = row.length - j - 1;
-
-                if (row[reverseJ] != key[i + keyTop][j + keyBottom]) return false;
+    private boolean checkBoard(int[][] copyBoard, int lockLength, int offset) {
+        for (int i = 0; i < lockLength; i++) {
+            for (int j = 0; j < lockLength; j++) {
+                if (copyBoard[i + offset][j + offset] != 1) {
+                    return false;
+                }
             }
         }
 
@@ -127,88 +88,89 @@ public class SourceCode {
 //                                {1, 0, 1}
 //                        }
 //                },
-                new Object[]{
-                        new int[][]{
-                                {0, 0, 0},
-                                {1, 0, 0},
-                                {0, 1, 1}
-                        },
-                        new int[][]{
-                                {1, 1, 0},
-                                {1, 1, 0},
-                                {1, 1, 1}
-                        }
+
+new Object[]{
+        new int[][]{
+                {0, 0, 0},
+                {1, 0, 0},
+                {0, 1, 1}
+        },
+        new int[][]{
+                {1, 1, 0},
+                {1, 1, 0},
+                {1, 1, 1}
+        }
+},
+new Object[]{
+        new int[][]{
+                {0, 0, 0},
+                {1, 0, 0},
+                {0, 1, 1}
+        },
+        new int[][]{
+                {1, 0, 1},
+                {0, 1, 1},
+                {1, 1, 1}
+        }
+},
+new Object[]{
+        new int[][]{
+                {0, 0, 0},
+                {1, 0, 0},
+                {0, 1, 1}
+        },
+        new int[][]{
+                {1, 1, 1},
+                {0, 1, 1},
+                {1, 0, 1}
+        }
+},
+new Object[]{
+        new int[][]{
+                {0, 0, 0},
+                {1, 0, 0},
+                {1, 1, 1}
+        },
+        new int[][]{
+                {1, 0, 1},
+                {1, 0, 0},
+                {1, 0, 1}
+        }
+},
+new Object[]{
+        new int[][]{
+                {0, 0, 0},
+                {1, 0, 0},
+                {1, 1, 1}
+        },
+        new int[][]{
+                {1, 0, 1},
+                {1, 0, 0},
+                {0, 0, 1}
+        }
+},
+new Object[]{
+        new int[][]{
+                {1, 0},
+                {1, 1},
                 },
-                new Object[]{
-                        new int[][]{
-                                {0, 0, 0},
-                                {1, 0, 0},
-                                {0, 1, 1}
-                        },
-                        new int[][]{
-                                {1, 0, 1},
-                                {0, 1, 1},
-                                {1, 1, 1}
-                        }
+        new int[][]{
+                {1, 0, 1},
+                {1, 0, 0},
+                {1, 0, 1}
+        }
+},
+new Object[]{
+        new int[][]{
+                {1, 0},
+                {1, 1},
                 },
-                new Object[]{
-                        new int[][]{
-                                {0, 0, 0},
-                                {1, 0, 0},
-                                {0, 1, 1}
-                        },
-                        new int[][]{
-                                {1, 1, 1},
-                                {0, 1, 1},
-                                {1, 0, 1}
-                        }
-                },
-                new Object[]{
-                        new int[][]{
-                                {0, 0, 0},
-                                {1, 0, 0},
-                                {1, 1, 1}
-                        },
-                        new int[][]{
-                                {1, 0, 1},
-                                {1, 0, 0},
-                                {1, 0, 1}
-                        }
-                },
-                new Object[]{
-                        new int[][]{
-                                {0, 0, 0},
-                                {1, 0, 0},
-                                {1, 1, 1}
-                        },
-                        new int[][]{
-                                {1, 0, 1},
-                                {1, 0, 0},
-                                {0, 0, 1}
-                        }
-                },
-                new Object[]{
-                        new int[][]{
-                                {1, 0},
-                                {1, 1},
-                        },
-                        new int[][]{
-                                {1, 0, 1},
-                                {1, 0, 0},
-                                {1, 0, 1}
-                        }
-                },
-                new Object[]{
-                        new int[][]{
-                                {1, 0},
-                                {1, 1},
-                                },
-                        new int[][]{
-                                {1, 1, 1},
-                                {1, 0, 0},
-                                {1, 0, 1}
-                        }
-                }
+        new int[][]{
+                {1, 1, 1},
+                {1, 0, 0},
+                {1, 0, 1}
+        }
+}
         };
 
         for (Object input : inputs) {
