@@ -10,8 +10,9 @@ public class SourceCode {
         for (Object input : inputs) {
             Object[] arguments = (Object[]) input;
 
-
-            System.out.println();
+            String actual = "";
+            String expected = "";
+            System.out.printf("actual : %s | expected : %s" + System.lineSeparator(), actual, expected);
         }
     }
 }
