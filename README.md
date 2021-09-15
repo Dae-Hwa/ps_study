@@ -17,6 +17,24 @@
 
 ## Done
 
+### 09.15
+
+- [퇴사](https://github.com/Dae-Hwa/ps_study/tree/%EB%B0%B1%EC%A4%80/%ED%87%B4%EC%82%AC-14501)
+
+### 09.10
+
+- [카드](https://github.com/Dae-Hwa/ps_study/tree/%EB%B0%B1%EC%A4%80/%EC%B9%B4%EB%93%9C-11652)
+- [광고 삽입](https://github.com/Dae-Hwa/ps_study/tree/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/%EA%B4%91%EA%B3%A0_%EC%82%BD%EC%9E%85)
+
+### 09.08
+
+- [자물쇠와 열쇠](https://github.com/Dae-Hwa/ps_study/tree/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/%EC%9E%90%EB%AC%BC%EC%87%A0%EC%99%80_%EC%97%B4%EC%87%A0)
+- [추석 트래픽](https://github.com/Dae-Hwa/ps_study/tree/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/%EC%B6%94%EC%84%9D_%ED%8A%B8%EB%9E%98%ED%94%BD)
+
+### 08.30
+
+- [환승](https://github.com/Dae-Hwa/ps_study/tree/%EB%B0%B1%EC%A4%80/%ED%99%98%EC%8A%B9-5214)
+
 ### 08.25~27
 
 - [최소 환승 경로](https://github.com/Dae-Hwa/ps_study/tree/%EB%B0%B1%EC%A4%80/%EC%B5%9C%EC%86%8C_%ED%99%98%EC%8A%B9_%EA%B2%BD%EB%A1%9C-2021)
