@@ -9,11 +9,17 @@
 
 ## To Do
 
+- [마지막 조별 시합](https://www.acmicpc.net/problem/2128)
+- [지뢰 제거](https://www.acmicpc.net/problem/9077)
+- 달팽이
+  - 기본달팽이
+  - 백준 달팽이 시리즈
+  - [삼각달팽이](https://programmers.co.kr/learn/courses/30/lessons/68645)
 - [후위표기식](https://www.acmicpc.net/problem/1918)
 - [스타트택시](https://www.acmicpc.net/problem/19238)
 - [마법사 상어와 파이어볼](https://www.acmicpc.net/problem/20056)
 - [행렬](https://www.acmicpc.net/problem/1080)
-- [삼각달팽이](https://programmers.co.kr/learn/courses/30/lessons/68645)
+
 
 ## Done
 
