@@ -2,7 +2,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -21,12 +20,11 @@ class Main {
 
             List<Integer> A = Stream.of(br.readLine().split(" "))
                                     .map(Integer::valueOf)
-                                    .sorted(Comparator.reverseOrder())
                                     .collect(Collectors.toList());
 
             List<Integer> B = Stream.of(br.readLine().split(" "))
                                     .map(Integer::valueOf)
-                                    .sorted(Comparator.reverseOrder())
+                                    .sorted()
                                     .collect(Collectors.toList());
 
             System.out.println(solution(A, B));
@@ -35,20 +33,27 @@ class Main {
 
     static int solution(List<Integer> A, List<Integer> B) {
         int answer = 0;
-        int left = 0;
 
         for (int a : A) {
+            int left = 0;
+            int right = B.size() - 1;
+            int count = 0;
 
-            while (left < B.size() && a <= B.get(left)) {
-                left++;
+            while (left <= right) {
+                int mid = (left + right) / 2;
+
+                if (B.get(mid) < a) {
+                    left = mid + 1;
+
+                    count = Math.max(mid + 1, count);
+                } else {
+                    right = mid - 1;
+                }
             }
 
-            if (left == B.size()) {
-                break;
-            }
-
-            answer += B.size() - left;
+            answer += count;
         }
+
 
         return answer;
     }
@@ -59,12 +64,12 @@ public class SourceCode {
         Object[] inputs = new Object[]{
                 new Object[]{
                         new ArrayList<>(List.of(8, 7, 3, 1, 1)),
-                        new ArrayList<>(List.of(6, 3, 1)),
+                        new ArrayList<>(List.of(1, 3, 6)),
                         7
                 },
                 new Object[]{
                         new ArrayList<>(List.of(13, 7, 2)),
-                        new ArrayList<>(List.of(290, 215, 103, 11)),
+                        new ArrayList<>(List.of(11, 103, 215, 290)),
                         1
                 }
         };
