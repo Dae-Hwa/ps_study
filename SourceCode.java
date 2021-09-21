@@ -34,11 +34,11 @@ class Main {
     }
 
     static int solution(int D, int K, int[][] students) {
-        List<List<Integer>> permutation = permutation(D, K);
+        List<List<Integer>> combination = combination(D, K);
 
         int maxStudent = 0;
 
-        for (List<Integer> each : permutation) {
+        for (List<Integer> each : combination) {
             int numberOfStudent = 0;
             for (int[] student : students) {
                 if (student.length == 0) {
@@ -66,21 +66,21 @@ class Main {
         return maxStudent;
     }
 
-    private static List<List<Integer>> permutation(int n, int r) {
-        List<List<Integer>> permutation = new ArrayList<>();
-        permutation(permutation, n, r, new ArrayDeque<>());
-        return permutation;
+    private static List<List<Integer>> combination(int n, int r) {
+        List<List<Integer>> combination = new ArrayList<>();
+        combination(combination, n, r, new ArrayDeque<>());
+        return combination;
     }
 
-    private static void permutation(List<List<Integer>> permutation, int n, int r, Deque<Integer> stack) {
+    private static void combination(List<List<Integer>> combination, int n, int r, Deque<Integer> stack) {
         if (stack.size() == r) {
-            permutation.add(new ArrayList<>(stack));
+            combination.add(new ArrayList<>(stack));
             return;
         }
 
-        for (int i = 1; i <= n; i++) {
+        for (int i = stack.isEmpty() ? 1 : stack.peek() + 1; i <= n; i++) {
             stack.push(i);
-            permutation(permutation, n, r, stack);
+            combination(combination, n, r, stack);
             stack.pop();
         }
     }
