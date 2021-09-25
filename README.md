@@ -9,7 +9,6 @@
 
 ## To Do
 
-- [마지막 조별 시합](https://www.acmicpc.net/problem/2128)
 - [지뢰 제거](https://www.acmicpc.net/problem/9077)
 - 달팽이
   - 기본달팽이
@@ -22,6 +21,20 @@
 
 
 ## Done
+
+### 09.21
+
+- [마지막 조별 시합](https://github.com/Dae-Hwa/ps_study/tree/%EB%B0%B1%EC%A4%80/%EB%A7%88%EC%A7%80%EB%A7%89_%EC%A1%B0%EB%B3%84_%EC%8B%9C%ED%95%A9-2128)
+
+### 09.19
+
+- [두 용액](https://github.com/Dae-Hwa/ps_study/tree/%EB%B0%B1%EC%A4%80/%EB%91%90_%EC%9A%A9%EC%95%A1)
+- [공정 컨설턴트 호석](https://github.com/Dae-Hwa/ps_study/tree/%EB%B0%B1%EC%A4%80/%EA%B3%B5%EC%A0%95_%EC%BB%A8%EC%84%A4%ED%84%B4%ED%8A%B8_%ED%98%B8%EC%84%9D-22254)
+
+### 09.16
+
+- [화살표 그리기](https://github.com/Dae-Hwa/ps_study/tree/%EB%B0%B1%EC%A4%80/%ED%99%94%EC%82%B4%ED%91%9C_%EA%B7%B8%EB%A6%AC%EA%B8%B0-15970)
+- [먹을 것인가 먹힐 것인가](https://github.com/Dae-Hwa/ps_study/tree/%EB%B0%B1%EC%A4%80/%EB%A8%B9%EC%9D%84_%EA%B2%83%EC%9D%B8%EA%B0%80_%EB%A8%B9%ED%9E%90_%EA%B2%83%EC%9D%B8%EA%B0%80-7795)
 
 ### 09.15
 
