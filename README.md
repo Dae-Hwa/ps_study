@@ -22,6 +22,20 @@
 
 ## Done
 
+### 10.23
+
+- [소수 만들기](https://github.com/Dae-Hwa/ps_study/tree/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/%EC%86%8C%EC%88%98_%EB%A7%8C%EB%93%A4%EA%B8%B0)
+- [타겟 넘버](https://github.com/Dae-Hwa/ps_study/tree/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/%ED%83%80%EA%B2%9F_%EB%84%98%EB%B2%84)
+
+### 10.12
+
+- [h-index](https://github.com/Dae-Hwa/ps_study/tree/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/h-index)
+- [행복 유치원](https://github.com/Dae-Hwa/ps_study/tree/%EB%B0%B1%EC%A4%80/%ED%96%89%EB%B3%B5_%EC%9C%A0%EC%B9%98%EC%9B%90-13164)
+
+### 10.07
+
+- [퍼즐 채우기](https://github.com/Dae-Hwa/ps_study/tree/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/%ED%8D%BC%EC%A6%90_%EC%A1%B0%EA%B0%81_%EC%B1%84%EC%9A%B0%EA%B8%B0)
+
 ### 09.21
 
 - [마지막 조별 시합](https://github.com/Dae-Hwa/ps_study/tree/%EB%B0%B1%EC%A4%80/%EB%A7%88%EC%A7%80%EB%A7%89_%EC%A1%B0%EB%B3%84_%EC%8B%9C%ED%95%A9-2128)
