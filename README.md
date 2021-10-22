@@ -22,7 +22,7 @@
 
 ## Done
 
-### 10.23
+### 10.22
 
 - [소수 만들기](https://github.com/Dae-Hwa/ps_study/tree/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/%EC%86%8C%EC%88%98_%EB%A7%8C%EB%93%A4%EA%B8%B0)
 - [타겟 넘버](https://github.com/Dae-Hwa/ps_study/tree/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/%ED%83%80%EA%B2%9F_%EB%84%98%EB%B2%84)
