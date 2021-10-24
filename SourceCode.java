@@ -1,18 +1,19 @@
 class Solution {
     public int solution(int n) {
-        int answer = 1;
-        int lastStartingPoint = 1;
+        int answer = 0;
+
+        int left = 1;
         int cur = 0;
-        for (int i = 1; i < n; i++) {
+        for (int i = 1; i <= n; i++) {
             cur += i;
 
-            while (n <= cur) {
-                if (n == cur) {
-                    answer++;
-                }
+            while (n < cur) {
+                cur -= left;
+                left++;
+            }
 
-                cur -= lastStartingPoint;
-                lastStartingPoint++;
+            if (cur == n) {
+                answer++;
             }
         }
 
