@@ -22,6 +22,14 @@
 
 ## Done
 
+### 10.29
+
+- [외벽 점검](https://github.com/Dae-Hwa/ps_study/tree/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/%EC%99%B8%EB%B2%BD_%EC%A0%90%EA%B2%80)
+
+### 10.23
+
+- [숫자의 표현](https://github.com/Dae-Hwa/ps_study/tree/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/%EC%88%AB%EC%9E%90%EC%9D%98_%ED%91%9C%ED%98%84)
+
 ### 10.22
 
 - [소수 만들기](https://github.com/Dae-Hwa/ps_study/tree/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/%EC%86%8C%EC%88%98_%EB%A7%8C%EB%93%A4%EA%B8%B0)
