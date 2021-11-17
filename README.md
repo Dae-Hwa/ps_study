@@ -22,6 +22,15 @@
 
 ## Done
 
+### 11.17
+
+- [](https://github.com/Dae-Hwa/ps_study/tree/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/%EC%9E%90%EB%8F%99%EC%99%84%EC%84%B1)
+
+### 11.14
+
+- [개똥벌레](https://github.com/Dae-Hwa/ps_study/tree/%EB%B0%B1%EC%A4%80/%EA%B0%9C%EB%98%A5%EB%B2%8C%EB%A0%88-3020)
+- [미친 아두이노](https://github.com/Dae-Hwa/ps_study/tree/%EB%B0%B1%EC%A4%80/%EB%AF%B8%EC%B9%9C_%EC%95%84%EB%91%90%EC%9D%B4%EB%85%B8-8972)
+
 ### 11.02
 
 - [튜플](https://github.com/Dae-Hwa/ps_study/tree/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/%ED%8A%9C%ED%94%8C)
