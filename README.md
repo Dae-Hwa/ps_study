@@ -22,6 +22,10 @@
 
 ## Done
 
+### 11.28
+
+- [조이스틱](https://github.com/Dae-Hwa/ps_study/tree/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/%EC%A1%B0%EC%9D%B4%EC%8A%A4%ED%8B%B1) 
+
 ### 11.17
 
 - [자동완성](https://github.com/Dae-Hwa/ps_study/tree/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/%EC%9E%90%EB%8F%99%EC%99%84%EC%84%B1)
