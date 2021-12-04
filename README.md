@@ -22,6 +22,10 @@
 
 ## Done
 
+### 12.05
+
+- [이진수 게임](https://github.com/Dae-Hwa/ps_study/tree/%EB%B0%B1%EC%A4%80/%EC%9D%B4%EC%A7%84%EC%88%98_%EA%B2%8C%EC%9E%84-18112)
+
 ### 11.28
 
 - [조이스틱](https://github.com/Dae-Hwa/ps_study/tree/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/%EC%A1%B0%EC%9D%B4%EC%8A%A4%ED%8B%B1) 
