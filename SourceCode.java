@@ -17,7 +17,7 @@ class Main {
         var start = new Node(
                 stores,
                 -1,
-                -1,
+                2,
                 0
         );
         visits.push(start);
