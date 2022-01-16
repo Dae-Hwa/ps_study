@@ -4,24 +4,18 @@ class Solution {
 
         for (int i = 0; i < numbers.length; i++) {
             var number = numbers[i];
-            var candidate = number;
 
-            if (Long.bitCount((number + 1) ^ number) <= 2) {
+            if (number % 2 == 0) {
                 answer[i] = number + 1;
             } else {
-                long temp = (number + 1) | (number >> 1);
-                if (Long.bitCount(temp ^ number) <= 2) {
-                    answer[i] = temp;
-                }
-            }
+                StringBuilder bit = new StringBuilder()
+                        .append("0")
+                        .append(Long.toString(number, 2));
 
-            while (answer[i] == 0) {
-                candidate++;
-
-                if (Long.bitCount(candidate ^ number) <= 2) {
-                    answer[i] = candidate;
-                    break;
-                }
+                int lastZeroIndex = bit.lastIndexOf("0");
+                bit.setCharAt(lastZeroIndex, '1');
+                bit.setCharAt(lastZeroIndex + 1, '0');
+                answer[i] = Long.parseLong(bit.toString(), 2);
             }
         }
 
