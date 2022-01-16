@@ -1,8 +1,7 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.PriorityQueue;
-import java.util.Queue;
+import java.util.Comparator;
 
 class Main {
     public static void main(String[] args) throws Exception {
@@ -11,26 +10,21 @@ class Main {
 
         Node[] universities = new Node[n];
 
+        int remains = 0;
         for (int i = 0; i < n; i++) {
             String[] input = br.readLine().split(" ");
             int p = Integer.parseInt(input[0]);
             int d = Integer.parseInt(input[1]);
+            remains = Math.max(d, remains);
 
             universities[i] = new Node(p, d);
         }
 
-        Queue<Node> pq = new PriorityQueue<>((o1, o2) -> Integer.compare(o1.p, o2.p) * -1);
-        pq.addAll(Arrays.asList(universities));
-
-        int remains = 0;
-        for (Node each : universities) {
-            remains = Math.max(each.d, remains);
-        }
+        Arrays.sort(universities, (o1, o2) -> Comparator.<Integer>reverseOrder().compare(o1.p, o2.p));
 
         int[] temp = new int[remains + 1];
-
-        while (!pq.isEmpty()) {
-            Node cur = pq.poll();
+        for (int i = 0; i < universities.length; i++) {
+            Node cur = universities[i];
 
             if (temp[cur.d] == 0) {
                 temp[cur.d] = cur.p;
