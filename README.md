@@ -22,9 +22,15 @@
 
 ## Done
 
+### 01.16
+
+- [절댓값 힙](https://github.com/Dae-Hwa/ps_study/tree/%EB%B0%B1%EC%A4%80/%EC%A0%88%EB%8C%93%EA%B0%92_%ED%9E%99-11286)
+- [2개 이하로 다른 비트](https://github.com/Dae-Hwa/ps_study/tree/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/2%EA%B0%9C_%EC%9D%B4%ED%95%98%EB%A1%9C_%EB%8B%A4%EB%A5%B8_%EB%B9%84%ED%8A%B8)
+
 ### 01.15
 
 - [우유 축제](https://github.com/Dae-Hwa/ps_study/tree/%EB%B0%B1%EC%A4%80/%EC%9A%B0%EC%9C%A0_%EC%B6%95%EC%A0%9C-14720) 
+- [순회 강연](https://github.com/Dae-Hwa/ps_study/tree/%EB%B0%B1%EC%A4%80/%EC%88%9C%ED%9A%8C%EA%B0%95%EC%97%B0-2109)
 
 ### 01.08
 
