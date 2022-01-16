@@ -6,6 +6,15 @@ class Solution {
             var number = numbers[i];
             var candidate = number;
 
+            if (Long.bitCount((number + 1) ^ number) <= 2) {
+                answer[i] = number + 1;
+            } else {
+                long temp = (number + 1) | (number >> 1);
+                if (Long.bitCount(temp ^ number) <= 2) {
+                    answer[i] = temp;
+                }
+            }
+
             while (answer[i] == 0) {
                 candidate++;
 
