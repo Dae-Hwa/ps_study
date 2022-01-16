@@ -19,13 +19,7 @@ class Main {
             universities[i] = new Node(p, d);
         }
 
-        Queue<Node> pq = new PriorityQueue<>((o1, o2) -> {
-            if (o1.d == o2.d) {
-                return Integer.compare(o1.p, o2.p) * -1;
-            }
-
-            return Integer.compare(o1.d, o2.d) * -1;
-        });
+        Queue<Node> pq = new PriorityQueue<>((o1, o2) -> Integer.compare(o1.p, o2.p) * -1);
         pq.addAll(Arrays.asList(universities));
 
         int remains = 0;
@@ -33,18 +27,27 @@ class Main {
             remains = Math.max(each.d, remains);
         }
 
-        int answer = 0;
-        for (int i = remains; 0 < i && !pq.isEmpty(); i--) {
+        int[] temp = new int[remains + 1];
+
+        while (!pq.isEmpty()) {
             Node cur = pq.poll();
 
-            if (cur.d < i) {
-                pq.add(cur);
+            if (temp[cur.d] == 0) {
+                temp[cur.d] = cur.p;
             } else {
-                answer += cur.p;
+                int min = 1;
+                for (int j = 1; j <= cur.d; j++) {
+                    if (temp[j] <= temp[min]) {
+                        min = j;
+                    }
+                }
+                if (temp[min] < cur.p) {
+                    temp[min] = cur.p;
+                }
             }
         }
 
-        System.out.println(answer);
+        System.out.println(Arrays.stream(temp).sum());
     }
 
     static class Node {
