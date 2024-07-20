@@ -1,5 +1,11 @@
 # Problem-Solving Study
 
+pr로 관리하도록 수정 중
+
+---
+
+## Deprecated
+
 문제는 브랜치 별로 나누어져있습니다.
 
 플랫폼/문제명 과 같이 찾을 수 있습니다.
